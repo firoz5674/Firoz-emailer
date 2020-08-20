@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>emailer</title>
+
+  <style>
+    html {
+      width: 100%
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
+    ::-moz-selection {
+      background: #fd4326;
+      color: #fff;
+      text-shadow: 1px 1px 0 #f22b0e
+    }
+
+    ::selection {
+      background: #fd4326;
+      color: #fff;
+      text-shadow: 1px 1px 0 #f22b0e
+    }
+
+    body {
+      background-color: #fff;
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .ReadMsgBody {
+      width: 100%;
+      background-color: #fff
+    }
+
+    .ExternalClass {
+      width: 100%;
+      background-color: #fff
+    }
+
+    a {
+      color: #fd4326;
+      text-decoration: none;
+      font-weight: 400;
+      font-style: normal
+    }
+
+    a:hover {
+      color: red;
+      text-decoration: none;
+      font-weight: 400;
+      font-style: normal
+    }
+
+    p,
+    div {
+      margin: 0 !important
+    }
+
+    table {
+      border-collapse: collapse
+    }
+
+    @media only screen and (max-width:640px) {
+      body {
+        width: auto !important
+      }
+
+      table table {
+        width: 100% !important
+      }
+
+      td[class=full_width] {
+        width: 100% !important
+      }
+
+      td[class=spacer] {
+        width: 30px !important
+      }
+
+      td[class=spacer_spec] {
+        display: none !important
+      }
+
+      div[class=div_scale] {
+        width: 440px !important;
+        margin: 0 auto !important
+      }
+
+      table[class=table_scale] {
+        width: 440px !important;
+        margin: 0 auto !important
+      }
+
+      td[class=td_scale] {
+        width: 440px !important;
+        margin: 0 auto !important
+      }
+
+      img[class=img_scale] {
+        width: 100% !important;
+        height: auto !important
+      }
+
+      img[class=divider] {
+        width: 100% !important;
+        height: 2px !important
+      }
+
+      td[class=divider] {
+        width: 100% !important;
+        display: block !important;
+        float: left;
+        text-align: inherit !important
+      }
+    }
+
+    @media only screen and (max-width:479px) {
+      body {
+        width: auto !important
+      }
+
+      table table {
+        width: 100% !important
+      }
+
+      td[class=full_width] {
+        width: 100% !important
+      }
+
+      div[class=div_scale] {
+        width: 280px !important;
+        margin: 0 auto !important
+      }
+
+      table[class=table_scale] {
+        width: 280px !important;
+        margin: 0 auto !important
+      }
+
+      td[class=td_scale] {
+        width: 280px !important;
+        margin: 0 auto !important
+      }
+
+      img[class=img_scale] {
+        width: 100% !important;
+        height: auto !important
+      }
+
+      img[class=divider] {
+        width: 100% !important;
+        height: 2px !important
+      }
+
+      td[class=spacer] {
+        display: none !important
+      }
+
+      td[class=spacer_spec] {
+        display: none !important
+      }
+
+      td[class=divider] {
+        width: 100% !important;
+        display: block !important;
+        float: left;
+        text-align: inherit !important
+      }
+
+      td[class=center] {
+        text-align: center !important
+      }
+
+      td[class=subject_line] {
+        float: left;
+        width: 240px;
+        display: block !important;
+        text-align: left !important;
+        padding: 15px 20px !important
+      }
+
+      td[class=contact] {
+        float: left;
+        width: 240px;
+        display: block !important;
+        text-align: left !important;
+        padding: 0 20px 15px !important;
+        padding-bottom: 20px !important
+      }
+
+      td[class=social_left] {
+        float: left;
+        width: 240px;
+        display: block !important;
+        text-align: center !important;
+        padding: 20px 20px 0 !important
+      }
+
+      td[class=social_right] {
+        float: left;
+        width: 240px;
+        display: block !important;
+        text-align: center !important;
+        padding: 0 20px !important
+      }
+
+      td[class=one_one] {
+        width: 240px !important;
+        display: block !important;
+        float: left;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        text-align: inherit !important
+      }
+
+      td[class=one_half] {
+        width: 240px !important;
+        padding-bottom: 0 !important;
+        display: block !important;
+        float: left;
+        padding-left: 20px !important;
+        text-align: inherit !important
+      }
+
+      td[class=one_half_last] {
+        width: 240px !important;
+        margin-top: 40px !important;
+        display: block !important;
+        float: left;
+        padding-left: 20px !important;
+        text-align: inherit !important;
+        padding-top: 0 !important
+      }
+
+      td[class=one_third_fed] {
+        width: 240px !important;
+        display: block !important;
+        float: left;
+        padding-left: 20px !important;
+        text-align: inherit !important
+      }
+
+      td[class=one_third_fed_sec] {
+        width: 240px !important;
+        margin-top: 20px !important;
+        display: block !important;
+        float: left;
+        padding-left: 20px !important;
+        text-align: inherit !important
+      }
+
+      td[class=one_third_fed_last] {
+        width: 240px !important;
+        margin-top: 20px !important;
+        display: block !important;
+        float: left;
+        padding-left: 20px !important;
+        text-align: inherit !important
+      }
+
+      td[class=one_third] {
+        width: 240px !important;
+        display: block !important;
+        float: left;
+        padding-left: 20px !important;
+        text-align: inherit !important
+      }
+
+      td[class=one_third_sec] {
+        width: 240px !important;
+        margin-top: 40px !important;
+        display: block !important;
+        float: left;
+        padding-left: 20px !important;
+        text-align: inherit !important
+      }
+
+      td[class=two_third_last] {
+        width: 240px !important;
+        margin-top: 40px !important;
+        display: block !important;
+        float: left;
+        padding-left: 20px !important;
+        text-align: inherit !important
+      }
+
+      td[class=two_third] {
+        width: 240px !important;
+        display: block !important;
+        float: left;
+        margin-left: 20px !important;
+        text-align: inherit !important
+      }
+
+      td[class=one_third_last] {
+        width: 240px !important;
+        margin-top: 40px !important;
+        display: block !important;
+        float: left;
+        margin-left: 20px !important;
+        text-align: inherit !important
+      }
+
+      td[class=one_fourth] {
+        width: 110px !important;
+        display: block !important;
+        float: left;
+        margin-left: 20px !important;
+        text-align: inherit !important
+      }
+
+      td[class=one_fourth_last] {
+        width: 110px !important;
+        margin-top: 20px !important;
+        display: block !important;
+        float: left;
+        margin-left: 20px !important;
+        text-align: inherit !important
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#d0d0d0"
+    style="padding: 0; margin: 0;">
+    <tr>
+      <td class="full_width" align="center" width="100%" bgcolor="#d0d0d0">
+        <div class="div_scale" style="width:600px;">
+          <!-- header section -->
+          <table class="table_scale" width="600" HEIGHT="42" border="0" align="center" cellpadding="0" cellspacing="0"
+            bgcolor="#494949" style="padding:0; margin: 0;">
+            <tr>
+              <td class="spacer" width="40" align="left" bgcolor="#153752" style="padding: 10px 0px 10px 0px;">
+                <a href="#"><img src="./assets/logo-white.png" alt="" style="max-width: 100%; height: auto;"></a>
+              </td>
+              <td class="spacer" width="60" align="right" valign="top" bgcolor="#153752" style="padding: 17px 10px 12px 6px;">
+                <a href="#"><img src="./assets/emailer-icons/youtube-beginner-guide/facebook.png" alt="" style="max-width: 100%; height: auto; margin-right: 4px;"></a>
+                <a href="#"><img src="./assets/emailer-icons/youtube-beginner-guide/instagram.png" alt="" style="max-width: 100%; height: auto; margin-right: 4px;"></a>
+                <a href="#"><img src="./assets/emailer-icons/youtube-beginner-guide/whatsapp.png" alt="" style="max-width: 100%; height: auto; margin-right: 5px;"></a>
+                <a href="#"><img src="./assets/emailer-icons/youtube-beginner-guide/twitter2.png" alt="" style="max-width: 100%; height: auto; margin-right: 5px;"></a>
+                <a href="#"><img src="./assets/emailer-icons/youtube-beginner-guide/youtube.png" alt="" style="max-width: 100%; height: auto; margin-right: 5px;"></a>
+              </td>
+            </tr>
+          </table>
+          <!-- //header section -->
+          <!-- the ultumate section -->
+          <table class="table_scale" width="600" height="42" border="0" align="center" cellpadding="0" cellspacing="0"
+            bgcolor="#494949" style="padding:0; margin: 0;">
+            <tr>
+              <td class="spacer" width="40" align="left" bgcolor="#fff" style="padding: 30px 20px 30px 20px; text-align: center; color: rgb(99, 99, 99);">
+                <h1 style="font-size: 28px;">The Ultimate<br> Beginner’s Guide for YouTube </h1>
+                <img src="./assets/emailer-icons/youtube-beginner-guide/beginner-guide.jpg" alt="" style="max-width: 100%; height: auto; margin: 20px 0px 15px 0px;">
+                <p style="color:rgb(128, 128, 128); font-size: 19px; padding: 13px 23px;">Have you just begun your YouTube journey and looking for some guidance?</p>
+              </td>
+            </tr>
+          </table>
+          <!-- //the ultumate section -->
+          <!-- circle dot section -->
+          <table class="table_scale" width="600" HEIGHT="42" border="0" align="center" cellpadding="0" cellspacing="0"
+            bgcolor="#494949">
+            <tr>
+              <td class="spacer" align="center" bgcolor="#fff" style="padding: 5px 0px 5px 0px;">
+                <span style="width: 15px; height: 15px; background-color: #153752; border-radius: 100px; display: inline-block; margin-right: 10px;"></span>
+                <span style="width: 15px; height: 15px; background-color: #ff2001; border-radius: 100px; display: inline-block; margin-right: 11px;"></span>
+                <span style="width: 15px; height: 15px; background-color: #153752; border-radius: 100px; display: inline-block;"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="spacer" align="center" bgcolor="#fff" style="padding: 5px 0px 5px 0px;">
+                <p style="color: rgb(128, 128, 128); font-size: 19px; padding-top: 20px; padding-bottom: 30px;">Or you are thinking to do so<br> and you often find yourself asking questions such as… </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="spacer" bgcolor="#fff" style="padding: 25px 10px 25px 20px; float: left; display: flex; justify-content: center;">
+                <div style="background-color: #f3fbfd; width: 170px; height: 170px; border-radius: 100px; position: relative; justify-content: center;">
+                  <img src="./assets/emailer-icons/youtube-beginner-guide/1.png" alt="" style="max-width: 100%; height: auto; position: absolute; left: 23%; top: 5%; width: 94px;">
+                  <p style="position: absolute; left: 0%; top: 64%; font-size: 14px; text-align: center; color: rgb(117, 117, 117);">what am I going to make videos about?</p>
+                </div>
+              </td>
+              <td class="spacer" bgcolor="#fff" style="padding: 25px 10px 25px 16px; float: left; display: flex; justify-content: center;">
+                <div style="background-color: #f3fbfd; width: 170px; height: 170px; border-radius: 100px; position: relative; justify-content: center;">
+                  <img src="./assets/emailer-icons/youtube-beginner-guide/1.png" alt="" style="max-width: 100%; height: auto; position: absolute; left: 23%; top: 5%; width: 94px;">
+                  <p style="position: absolute; left: 0%; top: 65%; font-size: 14px; text-align: center; color: rgb(117, 117, 117);">how to optimize for YouTube algorithm</p>
+                </div>
+              </td>
+              <td class="spacer" bgcolor="#fff" style="padding: 25px 10px 25px 10px; display: flex; justify-content: center;">
+                <div style="background-color: #f3fbfd; width: 170px; height: 170px; border-radius: 100px; position: relative; justify-content: center;">
+                  <img src="./assets/emailer-icons/youtube-beginner-guide/1.png" alt="" style="max-width: 100%; height: auto; position: absolute; left: 23%; top: 5%; width: 94px;">
+                  <p style="position: absolute; left: 0%; top: 65%; font-size: 14px; text-align: center; color: rgb(117, 117, 117);">what equipment should I purchase?”</p>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <!-- //circle dot section -->
+          <!-- keep scrolling section -->
+          <table class="table_scale" width="600" border="0" align="center" cellpadding="0" cellspacing="0"
+            bgcolor="#494949" style="padding:0; margin: 0;">
+            <tr>
+              <td class="spacer" width="100" bgcolor="#153752" style="padding: 30px 0px 30px 0px; color: #fff; text-align: center;">
+                <p style="font-size: 17px; padding-bottom: 6px;">Well, you have stumbled upon the right place. </p>
+                <p style="padding: 14px 30px; font-size: 17px;">We, at realsubscribers.com, have committed ourselves to help out beginners, like yourself, to taste success as a YouTuber! </p>
+                <p style="font-size: 24px; padding-top: 12px; font-weight: 600;">Keep scrolling to learn more… </p>
+              </td>
+            </tr>
+          </table>
+          <!-- //keep scrolling section -->
+          <!-- at rs.com -->
+          <table class="table_scale" width="600" border="0" align="center" cellpadding="0" cellspacing="0"
+            bgcolor="#494949" style="padding:0; margin: 0;">
+            <tr>
+              <td class="spacer" align="center" bgcolor="#fff" style="padding: 26px 0px 12px 0px;">
+                <span style="width: 15px; height: 15px; background-color: #153752; border-radius: 100px; display: inline-block; margin-right: 10px;"></span>
+                <span style="width: 15px; height: 15px; background-color: #ff2001; border-radius: 100px; display: inline-block; margin-right: 11px;"></span>
+                <span style="width: 15px; height: 15px; background-color: #153752; border-radius: 100px; display: inline-block;"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="spacer" align="center" bgcolor="#fff" style="padding: 16px 0px 12px 0px;">
+                <p style="font-size: 18px; color: rgb(128, 128, 128);">At realsubscribers.com, we help our clients to… </p>
+                <img src="./assets/emailer-icons/youtube-beginner-guide/beginner-guide2.jpg" alt="" style="display: inline-block; margin-top: 30px;">
+              </td>
+            </tr>
+            <tr>
+              <td class="spacer" align="left" bgcolor="#fff">
+                <ul>
+                  <li style="font-size: 18px; margin-bottom: 10px; color: rgb(99, 99, 99);">Achieve first 1000 subscribers and 4000 hours of watch time </li>
+                  <li style="font-size: 18px; margin-bottom: 10px; color: rgb(99, 99, 99);">Develop a crystal-clear YouTube marketing strategy</li>
+                  <li style="font-size: 18px; margin-bottom: 10px; color: rgb(99, 99, 99);">Make right kind of videos that attract viewers</li>
+                  <li style="font-size: 18px; margin-bottom: 10px; color: rgb(99, 99, 99);">Design a perfect YouTube SEO strategy </li>
+                  <li style="font-size: 18px; margin-bottom: 10px; color: rgb(99, 99, 99);">Correctly formulate Title tags, Meta tags</li>
+                  <li style="font-size: 18px; margin-bottom: 10px; color: rgb(99, 99, 99); margin-bottom: 32px;">Design the YouTube video thumbnail correctly</li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+          <!-- //at rs.com -->
+          <!-- why trust rs.com -->
+          <table class="table_scale" width="600" border="0" align="center" cellpadding="0" cellspacing="0"
+            bgcolor="#494949" style="padding:0; margin: 0;">
+            <tr>
+              <td class="spacer" align="center" bgcolor="#f3fbfd" style="padding: 26px 0px 12px 0px;">
+                <span style="width: 15px; height: 15px; background-color: #153752; border-radius: 100px; display: inline-block; margin-right: 10px;"></span>
+                <span style="width: 15px; height: 15px; background-color: #ff2001; border-radius: 100px; display: inline-block; margin-right: 11px;"></span>
+                <span style="width: 15px; height: 15px; background-color: #153752; border-radius: 100px; display: inline-block;"></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="spacer" align="center" bgcolor="#f3fbfd" style="padding: 16px 0px 12px 0px;">
+                <p style="font-size: 20px; font-weight: 600; color: rgb(128, 128, 128);">Why trust realsubscribers.com?</p>
+                <img src="./assets/emailer-icons/youtube-beginner-guide/beginner-guide3.jpg" alt="" style="display: inline-block; margin-top: 30px;">
+              </td>
+            </tr>
+            <tr>
+              <td class="spacer" align="left" bgcolor="#f3fbfd">
+                <ul>
+                  <li style="font-size: 18px; margin-bottom: 10px; color: rgb(99, 99, 99);">5 Years+ Experience in developing Youtubers</li>
+                  <li style="font-size: 18px; margin-bottom: 10px; color: rgb(99, 99, 99);">Industry Leading Experts are on our board</li>
+                  <li style="font-size: 18px; margin-bottom: 10px; color: rgb(99, 99, 99);">Personal one to one guidance and consultation to Youtubers</li>
+                  <li style="font-size: 18px; margin-bottom: 10px; color: rgb(99, 99, 99);">Backed by India’s best influencer marketing and management agency – GryNow</li>
+                  <li style="font-size: 18px; margin-bottom: 10px; color: rgb(99, 99, 99); margin-bottom: 30px;">More than 20,000 leading Youtubers are now part of our family</li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+          <!-- //why trust rs.com -->
+          <!-- last section section -->
+          <table class="table_scale" width="600" border="0" align="center" cellpadding="0" cellspacing="0"
+            bgcolor="#494949" style="padding:0; margin: 0;">
+            <tr>
+              <td class="spacer" width="100" bgcolor="#153752" style="padding: 30px 0px 30px 0px; color: #fff; text-align: center;">
+                <p style="font-size: 17px; padding-bottom: 6px;">So, what are you waiting for?</p>
+                <p style="padding: 6px 30px; font-size: 17px;">Avail our world-class services and get started on your YouTube journey today! </p>
+                <p style="padding: 14px 30px; font-size: 17px;">We are ready to catch your trust fall!  </p>
+                <p style="font-size: 24px; padding-top: 12px; font-weight: 600;">Let’s get started. </p>
+              </td>
+            </tr>
+          </table>
+          <!-- //last section section -->
+          <table class="table_scale" width="600" border="0" align="center" cellpadding="0" cellspacing="0"
+            bgcolor="#494949" style="padding:0; margin: 0;">
+            <tr>
+              <td class="spacer" width="100" bgcolor="#fff" style="padding: 30px 0px 30px 0px; color: rgb(83, 83, 83); text-align: center;">
+                <p style="font-size: 18px; padding-bottom: 6px; font-weight: 600;">Team<br>Realsubscribers.com</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+</body>
+
+</html>
