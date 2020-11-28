@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>emailer</title>
+  <title>Purchase Invoice</title>
 
   <style>
     html {
@@ -339,7 +339,7 @@
             bgcolor="#">
             <tr>
               <td class="spacer" bgcolor="#133852" style="padding: 20px 10px 20px 10px;">
-                <h2 style="color: rgb(231, 231, 231); font-size: 20px; padding-left: 20px; text-transform: uppercase;">Purchase Receipt</h2>
+                <h2 style="color: rgb(231, 231, 231); font-size: 20px; padding-left: 12px; text-transform: uppercase;">Purchase Receipt</h2>
               </td>
               <td class="spacer" bgcolor="#133852" style="padding: 20px 10px 20px 10px;">
                 <p style="color: rgb(231, 231, 231); font-size: 12px;">+91 1234 5678 90</p>
@@ -358,9 +358,9 @@
             bgcolor="#">
             <tr>
               <td class="spacer" bgcolor="#fff" style="padding: 20px 10px 30px 10px;">
-                <p style="font-size: 12px; color: #636363;"><strong>Billed To,</strong></p>
-                <p style="color: #505050; font-size: 13px; padding-top: 5px; padding-bottom: 5px;">John Doe, New York, USA</p>
-                <p style="color: #505050; font-size: 13px;">Zip - 123456</p>
+                <p style="font-size: 12px; color: #636363; padding-left: 12px;"><strong>Billed To,</strong></p>
+                <p style="color: #505050; font-size: 13px; padding-top: 5px; padding-bottom: 5px; padding-left: 12px;">John Doe, New York, USA</p>
+                <p style="color: #505050; font-size: 13px; padding-left: 13px;">Zip - 123456</p>
                 
               </td>
               <td class="spacer" bgcolor="#fff" style="padding: 20px 10px 30px 10px;">
@@ -368,9 +368,9 @@
                 <p style="font-size: 14px; color: #505050;">RS202001</p>
               </td>
               <td class="spacer" bgcolor="#fff" style="padding: 0px 10px 30px 10px;">
-                <p style="color: #636363; font-size: 12px; padding-bottom: 6px; padding-top: 30px;"><strong>Youtube Channel Link</strong></p>
-                <a href="#" style="color: #2996df;">Link Here</a>
-                <p style="font-size: 12px; padding-top: 15px; color: #636363;"><strong>Invoice Total</strong></p>
+                <!-- <p style="color: #636363; font-size: 12px; padding-bottom: 6px; padding-top: 30px;"><strong>Youtube Channel Link</strong></p>
+                <a href="#" style="color: #2996df;">Link Here</a> -->
+                <p style="font-size: 12px; padding-top: 15px; color: #636363;"><strong>Total</strong></p>
                 <p style="color: #133852; font-size: 41px;">$60.00</p>
               </td>
             </tr>
@@ -381,22 +381,16 @@
           <table class="table-_scale" border="0" width="100%" cellpadding="2" style="background-color: #fff; padding: 20px !important;">
             <tbody>
               <tr style="border-top: 3px solid #133852;">
-                <th width="40%" style="padding: 20px; text-align: left; color: #133852;">Description</th>
+                <th width="28%" style="padding: 20px; text-align: left; color: #133852;">Description</th>
                 <th width="20%" style="text-align: left; color: #133852;">Quantity</th>
                 <th width="20%" style="text-align: left; color: #133852;">Plan Type</th>
                 <th width="20%" style="text-align: left; color: #133852;">Amount</th>
               </tr>
               <tr>
                 <td style="font-size: 13px; text-align: left; padding: 5px 0px 20px 0px; padding-left: 20px; color: #636363;">Youtube Subscribers</td>
-                <td style="font-size: 13px; padding: 5px 0px 20px 0px; color: #636363;">1 Thousand</td>
+                <td style="font-size: 13px; padding: 5px 0px 20px 0px; color: #636363;">1000</td>
                 <td style="font-size: 13px; padding: 5px 0px 20px 0px; color: #636363;">General</td>
-                <td style="font-size: 13px; padding: 5px 0px 20px 0px; color: #636363;">100$</td>
-              </tr>
-              <tr>
-                <td style="font-size: 13px; text-align: left; padding-left: 20px; padding-bottom: 23px; color: #636363;">Ordered Subscribers</td>
-                <td style="font-size: 13px; padding-bottom: 23px; color: #636363;">1 Thousand</td>
-                <td style="font-size: 13px; padding-bottom: 23px; color: #636363;">General</td>
-                <td style="font-size: 13px; padding-bottom: 23px; color: #636363;">100$</td>
+                <td style="font-size: 13px; padding: 5px 0px 20px 0px; color: #636363;">$100</td>
               </tr>
             </tbody>
           </table>
@@ -406,22 +400,26 @@
             <tr>
               <td width="30%" style="padding-top: 30px;"></td>
               <td width="34%"></td>
-              <td width="30%">Subtotal: $100</td>
+              <td width="30%">Subtotal: <span style="display: inline-block;">$100</span></td>
             </tr>
             <tr>
               <td width="30%"></td>
               <td width="34%"></td>
-              <td width="30%">Discount: 40%</td>
+              <td width="30%">Discount: -40$</td>
             </tr>
             <tr>
               <td width="30%"></td>
               <td width="34%"></td>
-              <td width="30%">Total: $40</td>
+              <td width="30%">Total: <span style="display: inline-block; margin-left: 30px;">$60</span></td>
             </tr>
           </table>
           <table class="table-_scale" border="0" width="100%" cellpadding="8" style="background-color: #fff; padding: 20px !important;">
             <tr>
-              <td width="100%" style="padding-top: 30px; padding-bottom: 20px; font-size: 14px; color: #636363; padding-left: 20px;">Expected Delivery Time: 15-20 Days</td>
+              <td width="100%" style="padding-top: 30px; padding-bottom: 20px; font-size: 14px; color: #636363; padding-left: 20px;"><p>Expected Delivery Time: 15-20 Days</p>
+                <p style="color: #636363; font-size: 12px; padding-bottom: 6px; padding-top: 10px;"><strong>Youtube Channel Link</strong></p>
+                <a href="#" style="color: #2996df;">Link Here</a>
+              </td>
+
             </tr>
           </table>
         
