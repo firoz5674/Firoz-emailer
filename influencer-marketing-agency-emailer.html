@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>emailer</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+      width: 100%
+    }
+
+    /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap'); */
+
+    ::-moz-selection {
+      background: #fd4326;
+      color: #fff;
+      text-shadow: 1px 1px 0 #f22b0e
+    }
+
+    ::selection {
+      background: #fd4326;
+      color: #fff;
+      text-shadow: 1px 1px 0 #f22b0e
+    }
+
+    body {
+      background-color: #fff;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+    h1,h2,h3,h4,h5,h6,p,a,span {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .ReadMsgBody {
+      width: 100%;
+      background-color: #fff
+    }
+
+    .ExternalClass {
+      width: 100%;
+      background-color: #fff
+    }
+
+    a {
+      color: #04a3ff;
+      text-decoration: none;
+      font-weight: 400;
+      font-style: normal
+    }
+
+    a:hover {
+      color: red;
+      text-decoration: none;
+      font-weight: 400;
+      font-style: normal
+    }
+
+    p,
+    div {
+      margin: 0 !important
+    }
+
+    table {
+      border-collapse: collapse
+    }
+
+    @media only screen and (max-width:640px) {
+      body {
+        width: auto !important
+      }
+
+      table table {
+        width: 100% !important
+      }
+
+      td[class=full_width] {
+        width: 100% !important
+      }
+
+      td[class=spacer] {
+        width: 30px !important
+      }
+
+      td[class=spacer_spec] {
+        display: none !important
+      }
+
+      div[class=div_scale] {
+        width: 440px !important;
+        margin: 0 auto !important
+      }
+
+      table[class=table_scale] {
+        width: 440px !important;
+        margin: 0 auto !important
+      }
+
+      td[class=td_scale] {
+        width: 440px !important;
+        margin: 0 auto !important
+      }
+
+      img[class=img_scale] {
+        width: 100% !important;
+        height: auto !important
+      }
+
+      img[class=divider] {
+        width: 100% !important;
+        height: 2px !important
+      }
+
+      td[class=divider] {
+        width: 100% !important;
+        display: block !important;
+        float: left;
+        text-align: inherit !important
+      }
+    }
+
+    @media only screen and (max-width:479px) {
+      body {
+        width: auto !important
+      }
+
+      table table {
+        width: 100% !important
+      }
+
+      td[class=full_width] {
+        width: 100% !important
+      }
+
+      div[class=div_scale] {
+        width: 280px !important;
+        margin: 0 auto !important
+      }
+
+      table[class=table_scale] {
+        width: 280px !important;
+        margin: 0 auto !important
+      }
+
+      td[class=td_scale] {
+        width: 280px !important;
+        margin: 0 auto !important
+      }
+
+      img[class=img_scale] {
+        width: 100% !important;
+        height: auto !important
+      }
+
+      img[class=divider] {
+        width: 100% !important;
+        height: 2px !important
+      }
+
+      td[class=spacer] {
+        display: none !important
+      }
+
+      td[class=spacer_spec] {
+        display: none !important
+      }
+
+      td[class=divider] {
+        width: 100% !important;
+        display: block !important;
+        float: left;
+        text-align: inherit !important
+      }
+
+      td[class=center] {
+        text-align: center !important
+      }
+
+      td[class=subject_line] {
+        float: left;
+        width: 240px;
+        display: block !important;
+        text-align: left !important;
+        padding: 15px 20px !important
+      }
+
+      td[class=contact] {
+        float: left;
+        width: 240px;
+        display: block !important;
+        text-align: left !important;
+        padding: 0 20px 15px !important;
+        padding-bottom: 20px !important
+      }
+
+      td[class=social_left] {
+        float: left;
+        width: 240px;
+        display: block !important;
+        text-align: center !important;
+        padding: 20px 20px 0 !important
+      }
+
+      td[class=social_right] {
+        float: left;
+        width: 240px;
+        display: block !important;
+        text-align: center !important;
+        padding: 0 20px !important
+      }
+
+      td[class=one_one] {
+        width: 240px !important;
+        display: block !important;
+        float: left;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        text-align: inherit !important
+      }
+
+      td[class=one_half] {
+        width: 240px !important;
+        padding-bottom: 0 !important;
+        display: block !important;
+        float: left;
+        padding-left: 20px !important;
+        text-align: inherit !important
+      }
+
+      td[class=one_half_last] {
+        width: 240px !important;
+        margin-top: 40px !important;
+        display: block !important;
+        float: left;
+        padding-left: 20px !important;
+        text-align: inherit !important;
+        padding-top: 0 !important
+      }
+
+      td[class=one_third_fed] {
+        width: 240px !important;
+        display: block !important;
+        float: left;
+        padding-left: 20px !important;
+        text-align: inherit !important
+      }
+
+      td[class=one_third_fed_sec] {
+        width: 240px !important;
+        margin-top: 20px !important;
+        display: block !important;
+        float: left;
+        padding-left: 20px !important;
+        text-align: inherit !important
+      }
+
+      td[class=one_third_fed_last] {
+        width: 240px !important;
+        margin-top: 20px !important;
+        display: block !important;
+        float: left;
+        padding-left: 20px !important;
+        text-align: inherit !important
+      }
+
+      td[class=one_third] {
+        width: 240px !important;
+        display: block !important;
+        float: left;
+        padding-left: 20px !important;
+        text-align: inherit !important
+      }
+
+      td[class=one_third_sec] {
+        width: 240px !important;
+        margin-top: 40px !important;
+        display: block !important;
+        float: left;
+        padding-left: 20px !important;
+        text-align: inherit !important
+      }
+
+      td[class=two_third_last] {
+        width: 240px !important;
+        margin-top: 40px !important;
+        display: block !important;
+        float: left;
+        padding-left: 20px !important;
+        text-align: inherit !important
+      }
+
+      td[class=two_third] {
+        width: 240px !important;
+        display: block !important;
+        float: left;
+        margin-left: 20px !important;
+        text-align: inherit !important
+      }
+
+      td[class=one_third_last] {
+        width: 240px !important;
+        margin-top: 40px !important;
+        display: block !important;
+        float: left;
+        margin-left: 20px !important;
+        text-align: inherit !important
+      }
+
+      td[class=one_fourth] {
+        width: 110px !important;
+        display: block !important;
+        float: left;
+        margin-left: 20px !important;
+        text-align: inherit !important
+      }
+
+      td[class=one_fourth_last] {
+        width: 110px !important;
+        margin-top: 20px !important;
+        display: block !important;
+        float: left;
+        margin-left: 20px !important;
+        text-align: inherit !important
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#"
+    style="padding: 0; margin: 0;">
+    <tr>
+      <td class="full_width" align="center" width="100%" bgcolor="#f2f2f2">
+        <div class="div_scale" style="width:600px;">
+          <!-- header section -->
+          <table class="table_scale" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#"
+            style="padding:0; margin: 0;">
+            <tr>
+              <td class="spacer" align="center" bgcolor="#451e74" width="600" style="padding: 12px 0px 17px 0px;">
+                <a href="https://www.realsubscribers.com/"><img src="https://i.ibb.co/SdTs9NX/grynow-logo.webp" width="130" height="70" alt=""
+                    style="max-width: 100%; height: auto;"></a>
+              </td>
+            </tr>
+          </table>
+          <!-- //header section -->
+          <!-- main section -->
+          <table class="table_scale" width="600" border="0" align="center" cellpadding="0" cellspacing="0"
+            bgcolor="#f4f4f4" style="padding:0; margin: 0;">
+            <tr>
+              <td class="spacer" align="center" style="padding: 10px 20px; background-color: #f4f4f4;">
+                <h2 style="color: #535353; font-size: 20px; text-transform: uppercase;"><strong>the influencer marketing agency india</strong></h2>
+                <p style="color: #5f5f5f; padding-top: 0px; line-height: 25px; padding-bottom: 5px; font-size: 14px;">Grynow is an influencer marketing company with more than <span style="color: #451e74; font-weight: 600;">10000+ creators connected to us directly</span>. We have an amazing offer personalized for you. The engagement rate for micro-influencer is <span style="color: #451e74; font-weight: 600;">20% higher than from macro-influencers</span> but still are underrated due to difficulties in execution of the campaign. We at Grynow have come up with a standardised process for all sort of brands looking to leverage influencer marketing with micro-influencers.</p>
+
+              </td>
+            </tr>
+            <tr>
+              <td class="spacer" align="center" style="padding: 19px 0px; background-color: #f4f4f4;">
+                <a href="https://www.realsubscribers.com/"
+                  style="background-color: #333a42; border-radius: 50px; padding-bottom: 30px; display: inline-block; text-transform: uppercase; padding: 16px 23px; color: #fff; font-weight: 600;">sharing below a proposal according to your need</a>
+              </td>
+            </tr>
+          </table>
+          <!-- //main section -->
+
+          <table class="table_scale" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#fff"
+            style="padding:0; margin: 0;">
+            <tr>
+              <td class="spacer" align="center" width="600" style="padding: 20px 0px 20px 0px;">
+                <p style="color: #4c21c9; font-size: 27px; margin-bottom: 30px; font-weight: 600;">Pricing</p>
+              </td>
+            </tr>
+          </table>
+          <!-- points section -->
+          <table class="table_scale" width="600" border="0" align="center" cellpadding="0" cellspacing="0"
+            bgcolor="#fff">
+            <tr>
+              <td class="spacer">
+                <div style="width: 192px; float: left; min-height: 925px; text-align: center; padding: 10px 0px; border-radius: 10px; border: 2px solid rgb(182, 182, 182);">
+                  <img src="https://i.ibb.co/st6Kynh/barter.png" style="max-width: 100%; height: auto;" width="50" height="20" alt="">
+
+                  <h2 style="text-transform: uppercase; color: #949494;">barter</h2>
+                  <h3 style="color: #4c21c9; font-size: 30px; font-weight: 600;">15K <span style="display: inline-block; font-size: 17px; color: #4c21c9;">INR</span></h3>
+                  <ul style="padding-inline-start: initial; padding: 5px 7px;">
+                    <li style="list-style: none; border-bottom: 1px solid rgb(182, 182, 182);; padding: 0px 0px 17px 0px">Followers Range<br> <span style="display: inline-block; color: #000; font-weight: 600; padding-top: 6px;">1k-15k</span></li>
+                    <li style="list-style: none; border-bottom: 1px solid rgb(182, 182, 182);; padding: 17px 0px;">Cost Per Influencer<br> <span style="display: inline-block; color: #000; font-weight: 600; padding: 15px 0px; padding-top: 6px;">500 INR</span></li>
+                    <li style="list-style: none; border-bottom: 1px solid rgb(182, 182, 182);; padding: 17px 0px;">Min Influencers Required<br> <span style="display: inline-block; color: #000; font-weight: 600; padding-top: 6px;">30</span></li>
+                    <li style="list-style: none; border-bottom: 1px solid rgb(182, 182, 182);; padding: 17px 0px;">Deliverables<br> <span style="display: inline-block; color: #000; font-weight: 600; padding-top: 6px;">1 Static/Video Story + <br>1 Static Post</span></li>
+                    <li style="list-style: none; padding-top: 17px;">Expected Engagement<br> <span style="display: inline-block; color: #000; font-weight: 600; padding-top: 6px;">60k Views</span></li>
+                    <li style="list-style: none;"><a href="#" style="background-color: #4c21c9; display: inline-block; margin: 30px 0px; padding: 10px 22px 10px 22px; font-weight: 600; font-size: 13px; width: 100px; color: #fff; border-radius: 100px;">Buy Now!</a></li>
+                  </ul>
+                </div>
+              </td>
+              <td class="spacer">
+                <div style="width: 192px; float: left; text-align: center; padding: 10px 0px; border-radius: 10px; border: 2px solid rgb(182, 182, 182);">
+
+                  <img src="https://i.ibb.co/pLyvCCF/Standard.png" style="max-width: 100%; height: auto;" width="50" height="50" alt="">
+                  <h2 style="text-transform: uppercase; color: #949494;">silver</h2>
+                  <h3 style="color: #4c21c9; font-size: 30px; font-weight: 600;">26K <span style="display: inline-block; font-size: 17px; color: #4c21c9;">INR</span> <i style="font-style: italic; font-size: 13px; color: #333;"> - 200k views</i></h3>
+                  <h3 style="color: #4c21c9; font-size: 30px; font-weight: 600; margin: 0;">30K <span style="display: inline-block; font-size: 17px; color: #4c21c9;">INR</span> <i style="font-style: italic; font-size: 13px; color: #333;"> - 250k views</i></h3>
+                  <ul style="padding-inline-start: initial; padding: 5px 7px;">
+                    <li style="list-style: none; border-bottom: 1px solid rgb(182, 182, 182);; padding: 0px 0px 17px 0px">Followers Range<br> <span style="display: inline-block; color: #000; font-weight: 600; padding-top: 6px;">10k-50k</span></li>
+
+                    <li style="list-style: none; border-bottom: 1px solid rgb(182, 182, 182);; padding: 17px 0px;">Cost Per Influencer<br> <span style="display: inline-block; color: #000; font-weight: 600; padding: 15px 0px; padding-top: 6px;">Story > 500<br>Static Post > 800<br>Video Post > 1000</span></li>
+
+                    <li style="list-style: none; border-bottom: 1px solid rgb(182, 182, 182);; padding: 17px 0px;">Min Influencers Required<br> <span style="display: inline-block; color: #000; font-weight: 600; padding-top: 6px;">20</span></li>
+
+                    <li style="list-style: none; border-bottom: 1px solid rgb(182, 182, 182);; padding: 17px 0px;">Expected Engagement<br> <span style="display: inline-block; color: #000; font-weight: 600; padding-top: 6px;">Story + Static Post<br>200k views <br> Story + Static Post<br> 250k views</span></li>
+
+                    <li style="list-style: none;"><a href="#" style="background-color: #4c21c9; display: inline-block; margin: 30px 0px; padding: 10px 22px 10px 22px; font-weight: 600; font-size: 13px; width: 100px; color: #fff; border-radius: 100px;">Buy Now!</a></li>
+                  </ul>
+                </div>
+              </td>
+              <td class="spacer">
+                <div style="width: 192px; float: left; min-height: 768px; text-align: center; padding: 10px 0px; border-radius: 10px; border: 2px solid rgb(182, 182, 182);">
+
+                  <img src="https://i.ibb.co/fScvZ9m/Gold.png" style="max-width: 100%; height: auto;" width="50" height="50" alt="">
+                  <h2 style="text-transform: uppercase; color: #949494;">gold</h2>
+
+                  <h3 style="color: #4c21c9; font-size: 30px; font-weight: 600;">50K <span style="display: inline-block; font-size: 17px; color: #4c21c9;">INR</span> <i style="font-style: italic; font-size: 13px; color: #333;"> - 400k views</i></h3>
+
+                  <h3 style="color: #4c21c9; font-size: 30px; font-weight: 600; margin: 0;">60K <span style="display: inline-block; font-size: 17px; color: #4c21c9;">INR</span> <i style="font-style: italic; font-size: 13px; color: #333;"> - 500k views</i></h3>
+                  <ul style="padding-inline-start: initial; padding: 5px 7px;">
+                    <li style="list-style: none; border-bottom: 1px solid rgb(182, 182, 182);; padding: 0px 0px 17px 0px">Followers Range<br> <span style="display: inline-block; color: #000; font-weight: 600; padding-top: 6px;">30k-100k</span></li>
+
+                    <li style="list-style: none; border-bottom: 1px solid rgb(182, 182, 182);; padding: 17px 0px;">Cost Per Influencer<br> <span style="display: inline-block; color: #000; font-weight: 600; padding: 15px 0px; padding-top: 6px;">Story > 1000<br>Static Post > 1500<br>Video Post > 2000</span></li>
+
+                    <li style="list-style: none; border-bottom: 1px solid rgb(182, 182, 182);; padding: 17px 0px;">Min Influencers Required<br> <span style="display: inline-block; color: #000; font-weight: 600; padding-top: 6px;">20</span></li>
+
+                    <li style="list-style: none; border-bottom: 1px solid rgb(182, 182, 182);; padding: 17px 0px;">Expected Engagement<br> <span style="display: inline-block; color: #000; font-weight: 600; padding-top: 6px;">Story + Static Post<br>400k views <br> Story + Static Post<br> 450k views</span></li>
+
+                    <li style="list-style: none;"><a href="#" style="background-color: #4c21c9; display: inline-block; margin: 30px 0px; padding: 10px 22px 10px 22px; font-weight: 600; font-size: 13px; width: 100px; color: #fff; border-radius: 100px;">Buy Now!</a></li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+          </table>
+          <!-- //points section -->
+
+          <!-- last one point section due to error -->
+          <table class="table_scale" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#fff"
+            style="padding:0; margin: 0;">
+            <tr>
+              <td class="spacer" align="center" width="600" style="padding: 30px 0px 0px 0px;">
+                <div>
+                  <img src="https://i.ibb.co/5nQf3cS/micro-influencers2.webp" style="max-width: 100%;" alt="">
+                </div>
+              </td>
+            </tr>
+          </table>
+          <!-- //last one point section due to error -->
+
+          <!-- last section -->
+          <table class="table_scale" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#3c4185"
+            style="padding:0; margin: 0;">
+            <tr>
+              <td class="spacer" align="center" width="600" valign="top" bgcolor="#333a42"
+                style="padding: 26px 0px 35px 0px;">
+                <div style="text-align: center;">
+                  <img src="https://i.ibb.co/SdTs9NX/grynow-logo.webp" style="max-width: 100%;" width="130" height="40" alt="">
+                </div>
+                <a href="https://www.grynow.in/" style="color: #fff; display: inline-block; font-size: 12px; text-decoration: underline;">www.grynow.com</a>
+                <p style="color: #fff; margin-top: 30px !important; padding-bottom: 20px;"><strong>Contact Us</strong></p>  
+                <p style="color: #f2f2f2; font-weight: 200; padding-bottom: 10px;"><strong>Aman - </strong>+91 9654089096</p>
+                <p style="color: #f2f2f2; font-weight: 200;">aman@grynow.in</p>
+              </td>
+            </tr>
+          </table>
+          <!-- //last section -->
+        </div>
+      </td>
+    </tr>
+  </table>
+
+</body>
+
+</html>
